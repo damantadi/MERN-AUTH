@@ -24,7 +24,7 @@ const Login = () => {
 
        if(data.success){
         setIsLoggedin(true)
-        getUserData()
+        await getUserData()
         navigate('/')
        }
        else
@@ -37,7 +37,7 @@ const Login = () => {
 
         if(data.success){
          setIsLoggedin(true)
-         getUserData()
+         await getUserData()
          navigate('/')
         }
         else
