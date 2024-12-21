@@ -140,7 +140,6 @@ export const verifyEmail =  async (req,res)=>{
         {
             return res.json({success:false,message:'User not found'})
         }
-        console.log(user)
         if(user.verifyOtp === '' || user.verifyOtp !==otp)
         {
             return res.json({success:false,message:'Invalid OTP'})
