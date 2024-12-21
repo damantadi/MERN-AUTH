@@ -43,7 +43,7 @@ const EmailVerify = () => {
      if(data.success)
      {
       toast.success(data.message)
-      await getUserData()
+      getUserData()
       navigate('/')
      }
       else
