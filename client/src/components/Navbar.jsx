@@ -33,6 +33,10 @@ const Navbar = () => {
         const {data} = await axios.post(backendUrl + '/api/auth/logout')
         data.success && setIsLoggedin(false)
         data.success && setUserData(false)
+        if(data.success)
+        {
+          toast.success(data.message)
+        }
         Navigate('/')
         
       } catch (error) {
