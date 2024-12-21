@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import userModel from "../models/usermodel.js";
 import transporter from "../config/nodemailer.js";
-import { EMAIL_VERIFY_TEMPLATE,PASSWORD_RESET_TEMPLATE } from "../config/emailTemplates.js";
+import { EMAIL_VERIFY_TEMPLATE,PASSWORD_RESET_TEMPLATE,WELCOME_TEMPLATE } from "../config/emailTemplates.js";
 
 export const register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -32,12 +32,12 @@ export const register = async (req, res) => {
     const mailOptions = {
          from : process.env.SENDER_EMAIL,
          to: email,
-         subject: 'Welcome to GreatStack',
-         text:`Welcome to greatstack website .Your Account has been created with email id : ${email}`   
+         subject: 'Welcome to MERN-INDIA',
+         html:WELCOME_TEMPLATE.replaceAll("{{name}}",user.name).replace("{{email}}",user.email)
     }
 
     await transporter.sendMail(mailOptions);
-    return res.json({ success: true });
+    return res.json({ success: true,message:'Successfully Registered' });
   } catch (error) {
     res.json({ success: false, message: error.message });
   }
@@ -74,7 +74,7 @@ export const login = async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
-    return res.json({ success: true });
+    return res.json({ success: true ,message:'Loggedin Successfully'});
   } catch (error) {
     return res.json({ success: false, message: error.message });
   }
