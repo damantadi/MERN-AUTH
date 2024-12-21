@@ -34,8 +34,3 @@ app.listen(port,()=>{
 })
 
 
-//dfAX66TJz2tTquWy
-//damantadi38
-
-
-//mongodb+srv://damantadi38:<db_password>@mern-cluster.qgguw.mongodb.net/
