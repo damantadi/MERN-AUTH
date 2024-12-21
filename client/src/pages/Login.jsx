@@ -25,7 +25,7 @@ const Login = () => {
        if(data.success){
         toast.success(data.message)
         setIsLoggedin(true)
-        await getUserData()
+        getUserData()
         navigate('/')
        }
        else
@@ -39,7 +39,7 @@ const Login = () => {
         if(data.success){
          toast.success(data.message)
          setIsLoggedin(true)
-         await getUserData()
+         getUserData()
          navigate('/')
         }
         else
